@@ -6,6 +6,9 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateColumnTitleInExpenseReports extends Migration
 {
+    // comando para crear migración
+    // php artisan make:migration create_column_title_in_expense_reports --table=expense_reports
+
     /**
      * Run the migrations.
      *
