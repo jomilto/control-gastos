@@ -14,7 +14,7 @@ class CreateColumnTitleInExpenseReports extends Migration
     public function up()
     {
         Schema::table('expense_reports', function (Blueprint $table) {
-            //
+            $table->text('title');
         });
     }
 
@@ -26,7 +26,7 @@ class CreateColumnTitleInExpenseReports extends Migration
     public function down()
     {
         Schema::table('expense_reports', function (Blueprint $table) {
-            //
+            $table->dropColumn('title');
         });
     }
 }
