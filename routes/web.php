@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('expense_report','ExpenseReportController');
+Route::resource('/expense_reports','ExpenseReportController');

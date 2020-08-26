@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ExpenseReport;
 
 class ExpenseReportController extends Controller
 {
@@ -13,7 +14,8 @@ class ExpenseReportController extends Controller
      */
     public function index()
     {
-        //
+        $expenseReports = ExpenseReport::all();
+        return view('expenseReport.index',compact('expenseReports'));
     }
 
     /**
