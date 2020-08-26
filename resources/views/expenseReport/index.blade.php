@@ -17,6 +17,9 @@
                 @foreach($expenseReports as $report)
                     <tr>
                         <td>{{$report->title}}</td>
+                        <td>
+                            <a class="btn btn-info" href="/expense_reports/{{$report->id}}/edit">Edit</a>
+                        </td>
                     </tr>
                 @endforeach
             </table>
