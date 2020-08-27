@@ -19,7 +19,7 @@
                         <td>{{$report->title}}</td>
                         <td>
                             <a class="btn btn-info" href="/expense_reports/{{$report->id}}">Ver</a>
-                            <a class="btn btn-info" href="/expense_reports/{{$report->id}}/edit">Edit</a>
+                            <a class="btn btn-warning" href="/expense_reports/{{$report->id}}/edit">Edit</a>
                             <a class="btn btn-danger" href="/expense_reports/{{$report->id}}/confirmDelete">Delete</a>
                         </td>
                     </tr>

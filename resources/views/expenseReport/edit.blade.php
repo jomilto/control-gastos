@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h1>Edit Report ID {{$report->id}}</h1>
+            <h1>Edit Report ID {{$expenseReport->id}}</h1>
         </div>
     </div>
     <div class="row">
@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/expense_reports/{{$report->id}}" method="post">
+            <form action="/expense_reports/{{$expenseReport->id}}" method="post">
                 @csrf
                 @method('put')
                 <div class="form-group">

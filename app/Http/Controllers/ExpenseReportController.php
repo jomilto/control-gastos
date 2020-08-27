@@ -53,9 +53,9 @@ class ExpenseReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(ExpenseReport $report)
+    public function show(ExpenseReport $expenseReport)
     {
-        return view('expenseReport.show',compact('report'));
+        return view('expenseReport.show',compact('expenseReport'));
     }
 
     /**
@@ -64,9 +64,9 @@ class ExpenseReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(ExpenseReport $report)
+    public function edit(ExpenseReport $expenseReport)
     {
-        return view('expenseReport.edit',compact('report'));
+        return view('expenseReport.edit',compact('expenseReport'));
     }
 
     /**
@@ -76,14 +76,14 @@ class ExpenseReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ExpenseReport $report)
+    public function update(Request $request, ExpenseReport $expenseReport)
     {
         $validData = $request->validate([
             'title' => 'required|min:3'
         ]);
 
-        $report->title = $validData['title'];
-        $report->save();
+        $expenseReport->title = $validData['title'];
+        $expenseReport->save();
 
         return redirect('/expense_reports');
     }
@@ -94,14 +94,14 @@ class ExpenseReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ExpenseReport $report)
+    public function destroy(ExpenseReport $expenseReport)
     {
-        $report->delete();
+        $expenseReport->delete();
         return redirect('/expense_reports');
     }
 
-    public function confirmDelete(ExpenseReport $report)  
+    public function confirmDelete(ExpenseReport $expenseReport)  
     {
-        return view('expenseReport.confirmDelete',compact('report'));
+        return view('expenseReport.confirmDelete',compact('expenseReport'));
     }
 }
