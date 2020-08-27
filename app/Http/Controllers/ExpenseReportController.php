@@ -53,9 +53,9 @@ class ExpenseReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ExpenseReport $report)
     {
-        //
+        return view('expenseReport.show',compact('report'));
     }
 
     /**
@@ -64,9 +64,8 @@ class ExpenseReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ExpenseReport $report)
     {
-        $report = ExpenseReport::findOrFail($id);
         return view('expenseReport.edit',compact('report'));
     }
 
@@ -77,13 +76,12 @@ class ExpenseReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ExpenseReport $report)
     {
         $validData = $request->validate([
             'title' => 'required|min:3'
         ]);
 
-        $report = ExpenseReport::findOrFail($id);
         $report->title = $validData['title'];
         $report->save();
 
@@ -96,16 +94,14 @@ class ExpenseReportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ExpenseReport $report)
     {
-        $report = ExpenseReport::findOrFail($id);
         $report->delete();
         return redirect('/expense_reports');
     }
 
-    public function confirmDelete($id)  
+    public function confirmDelete(ExpenseReport $report)  
     {
-        $report = ExpenseReport::findOrFail($id);
         return view('expenseReport.confirmDelete',compact('report'));
     }
 }
