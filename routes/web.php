@@ -17,7 +17,9 @@ Route::get('/', function () {
 
 Route::resource('/expense_reports','ExpenseReportController');
 
-Route::get('/expense_reports/{id}/confirmDelete','ExpenseReportController@confirmDelete');
+Route::get('/expense_reports/{expense_report}/confirmDelete','ExpenseReportController@confirmDelete');
+Route::get('/expense_reports/{expense_report}/confirmSendMail','ExpenseReportController@confirmSendMail');
+Route::post('/expense_reports/{expense_report}/sendMail','ExpenseReportController@sendMail');
 
 Route::resource('expense_reports.expenses','ExpenseController')->only(['create','store']);
 
